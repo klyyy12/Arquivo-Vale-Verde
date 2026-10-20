@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-terminal: #020702;
+    --green-main: #55FF6A;
+    --green-border: #26E85A;
+    --text-standard: #7CFF8B;
+    --text-secondary: #478C50;
+    --white: #FFFFFF;
+    --alert: #FFB000;
+    --error: #FF3B4D;
+  }
+
+  * {
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-terminal);
+    color: var(--text-standard);
+    font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  ::selection {
+    background: #26E85A;
+    color: #020702;
+  }
+}
+
+/* CRT monitor scanlines effect */
+.crt-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.02),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.02)
+  );
+  background-size: 100% 3px, 4px 100%;
+  pointer-events: none;
+}
+
+/* Subtle CRT curvature vignette */
+.crt-vignette {
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.85), inset 0 0 20px rgba(38, 232, 90, 0.05);
+  pointer-events: none;
+}
+
+/* Phosphor text glow */
+.phosphor-glow {
+  text-shadow: 0 0 6px rgba(85, 255, 106, 0.45);
+}
+
+.phosphor-glow-alert {
+  text-shadow: 0 0 6px rgba(255, 176, 0, 0.45);
+}
+
+.phosphor-glow-error {
+  text-shadow: 0 0 6px rgba(255, 59, 77, 0.45);
+}
+
+/* Retro CRT screen flicker animation */
+@keyframes crt-flicker {
+  0% { opacity: 0.985; }
+  50% { opacity: 1; }
+  52% { opacity: 0.96; }
+  54% { opacity: 0.99; }
+  80% { opacity: 0.98; }
+  90% { opacity: 1; }
+  92% { opacity: 0.97; }
+  100% { opacity: 0.985; }
+}
+
+.crt-flicker-active {
+  animation: crt-flicker 0.15s infinite;
+}
+
+/* Custom retro scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020702;
+  border-left: 1px solid #478C50;
+}
+::-webkit-scrollbar-thumb {
+  background: #26E85A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #55FF6A;
+}

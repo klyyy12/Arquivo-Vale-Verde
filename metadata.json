@@ -1,0 +1,6 @@
+{
+  "name": "Arquivo Vale Verde",
+  "description": "Jogo 2D de exploração e ARG narrativo ambientado em Vale Verde (1983). Explore a cidade, prédios e arquivos confidenciais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
